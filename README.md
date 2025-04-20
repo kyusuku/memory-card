@@ -1,54 +1,92 @@
-# React + TypeScript + Vite
+# Pokémon Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive memory game built with React, TypeScript, Tailwind CSS, and Vite. The goal of the game is to click on Pokémon cards without clicking on the same card twice. Each unique click increases your score, and the game resets if you click on a card you've already clicked.
 
-Currently, two official plugins are available:
+## Try It Out
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo: [Here!](https://kyusuku-memory-card.vercel.app)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Dynamic Gameplay**: Cards are shuffled after every click to keep the game challenging.
+- **Score Tracking**: Displays the current score and the best score achieved.
+- **Responsive Design**: Adapts to different screen sizes, including mobile, tablet, and desktop.
+- **Pokémon Images**: Fetches Pokémon images dynamically from the [PokéAPI](https://pokeapi.co/).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## Technologies Used
+
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and better developer experience.
+- **Tailwind CSS**: For styling and responsive design.
+- **PokéAPI**: For fetching Pokémon images dynamically.
+
+## Project Structure
+
+```
+memory-card/
+├── src/
+│   ├── components/       # React components (e.g., Cards, Fetch)
+│   ├── App.tsx           # Main application component
+│   ├── index.css         # Global styles
+│   ├── main.tsx          # Application entry point
+├── public/               # Public assets
+├── package.json          # Project dependencies and scripts
+├── tailwind.config.js    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── README.md             # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## How to Play
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+1. Click on a Pokémon card to earn points.
+2. Avoid clicking on the same card more than once.
+3. The game resets if you click on a card you've already clicked.
+4. Try to beat your best score!
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/kyusuku/memory-card.git
+   cd memory-card
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the application in your browser at `http://localhost:5173`.
+
+## Scripts
+
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the application for production.
+- `npm run preview`: Preview the production build.
+
+## Customization
+
+- **Styling**: Modify `src/index.css` or use Tailwind CSS classes in components.
+- **Components**: Add or edit components in the `src/components/` directory.
+- **Configuration**: Update `tailwind.config.js` or `tsconfig.json` for build and TypeScript settings.
+
+## Future Improvements
+
+- Add more Pokémon cards to increase the variety.
+- Introduce difficulty levels with more cards or faster shuffling.
+- Add animations for card clicks and shuffling.
+- Preload Pokémon images for faster load.
+
+## Acknowledgments
+
+- **[PokéAPI](https://pokeapi.co/)**: For providing the Pokémon data and images.
+- **[Tailwind CSS](https://tailwindcss.com/)**: For the responsive and modern styling.
+- **[The Odin Project](https://www.theodinproject.com/)**: For providing the curriculum and inspiration for this project.

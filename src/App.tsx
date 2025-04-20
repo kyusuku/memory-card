@@ -26,23 +26,23 @@ function App() {
   };
 
   return (
-    <div className="montserrat-font flex flex-col p-6">
+    <div className="montserrat-font flex h-full w-full flex-col justify-between p-6">
       <div>
-        <div className="flex items-start justify-between">
-          <h1 className="mb-8 text-5xl font-bold text-gray-900">
+        <div className="flex items-start justify-between gap-1">
+          <h1 className="mb-8 flex-3 text-5xl font-bold text-gray-900 max-xl:text-4xl max-lg:text-3xl max-sm:text-3xl">
             Pokémon Memory Game
           </h1>
-          <div className="font-bold text-gray-900">
-            <p>Score: {score}</p>
-            <p>Best score: {bestScore}</p>
+          <div className="flex-2 text-right font-bold text-gray-900 max-sm:text-[15px]">
+            <p>Score {score}</p>
+            <p>Best {bestScore}</p>
           </div>
         </div>
-        <p className="mb-16 text-sm font-bold text-gray-900">
+        <p className="mb-16 text-sm font-bold text-gray-900 max-lg:mb-4 max-sm:mb-4 max-sm:text-[12px]">
           Get points by clicking on a Pokémon but don't click on any more than
           once!
         </p>
       </div>
-      <div className="grid grid-cols-6 gap-8">
+      <div className="grid grid-cols-6 gap-8 max-lg:grid-cols-4 max-sm:grid-cols-3 max-sm:gap-2">
         <Cards key={reloadKey} onCardClick={handleCardClick} />
       </div>
       <footer></footer>

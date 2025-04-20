@@ -1,8 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Press Start 2P", cursive;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url(https://i.redd.it/74crvhb3vyn61.png); /* Thanks reddit for hosting the background image */
   background-size: cover;
   background-repeat: no-repeat;

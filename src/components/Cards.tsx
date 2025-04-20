@@ -174,11 +174,13 @@ const Cards = ({ onCardClick }: CardsProps) => {
       {Array.from(pokemonDisplay).map((pokemon: string) => (
         <div
           key={pokemon}
-          className="flex min-h-[300px] flex-col rounded-[15px] bg-[#fff] p-2 opacity-[0.85] shadow-2xl hover:bg-blue-200 hover:shadow-blue-300"
+          className="flex min-h-[300px] flex-col rounded-[15px] bg-[#fff] p-2 opacity-[0.85] shadow-2xl hover:bg-blue-200 hover:shadow-blue-300 max-2xl:min-h-0 max-lg:min-h-0"
           onClick={() => handleClick(pokemon)}
         >
           <Fetch name={pokemon} />
-          <p className="text-center">{pokemon}</p>
+          <p className="text-center text-ellipsis max-xl:text-[12px] max-lg:text-[12px] max-sm:text-[8px]">
+            {pokemon}
+          </p>
         </div>
       ))}
     </>

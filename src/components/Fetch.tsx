@@ -8,7 +8,7 @@ const Fetch = ({ name }: FetchProps) => {
   const [photo, setPhoto] = useState<string>("");
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, { mode: "cors" })
       .then((res) => res.json())
       .then((data) => {
         setPhoto(data.sprites.front_default);

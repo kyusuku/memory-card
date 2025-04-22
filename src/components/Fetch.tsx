@@ -25,7 +25,12 @@ const Fetch = ({ name }: FetchProps) => {
       .finally(() => setLoading(false));
   }, [name]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <p className="text-center max-xl:text-[12px] max-lg:text-[12px] max-sm:text-[8px]">
+        Loading...
+      </p>
+    );
   if (error) {
     return <p>Error fetching image</p>;
   }

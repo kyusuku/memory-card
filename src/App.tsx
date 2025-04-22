@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Cards from "./components/Cards.tsx";
 
@@ -7,6 +7,36 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [clickedPokemon, setClickedPokemon] = useState<string[]>([]);
   const [reloadKey, setReloadKey] = useState(0);
+  const [pokemonArrState, setPokemonArrState] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchPokemonImages = async () => {
+      const promises = [];
+      for (let i = 1; i <= 36; i++) {
+        promises.push(
+          fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+            .then((response) => {
+              if (response.status >= 400) {
+                throw new Error("server error");
+              }
+              return response.json();
+            })
+            .then((data) => data.sprites.front_default),
+        );
+      }
+
+      try {
+        const images = await Promise.all(promises);
+        setPokemonArrState(images);
+      } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+      }
+    };
+
+    fetchPokemonImages();
+  }, []);
+
+  console.log(pokemonArrState);
 
   const handleCardClick = (pokemon: string) => {
     if (clickedPokemon.includes(pokemon)) {
@@ -43,7 +73,11 @@ function App() {
         </p>
       </div>
       <div className="grid grid-cols-6 gap-8 max-lg:grid-cols-4 max-sm:grid-cols-3 max-sm:gap-2">
-        <Cards key={reloadKey} onCardClick={handleCardClick} />
+        <Cards
+          key={reloadKey}
+          onCardClick={handleCardClick}
+          pokemonArr={pokemonArrState}
+        />
       </div>
       <footer></footer>
     </div>
